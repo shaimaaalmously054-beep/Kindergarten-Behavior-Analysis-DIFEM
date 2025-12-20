@@ -10,7 +10,7 @@ Note:
 - OpenPose must be installed separately following the official instructions:
   https://github.com/CMU-Perceptual-Computing-Lab/openpose
 
-Author: YOUR NAME
+Author: Shaimaa Almously
 Graduation Project – 2025
 """
 

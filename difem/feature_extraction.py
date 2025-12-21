@@ -50,10 +50,18 @@ def load_keypoints(json_path):
 
     return np.stack(persons)
 
-
 def extract_difem_features(json_folder):
-    frame_files = sorted(f for f in os.listdir(json_folder) if f.endswith(".json"))
-    frames = np.array([load_keypoints(os.path.join(json_folder, f)) for f in frame_files])
+    frame_files = sorted(
+        f for f in os.listdir(json_folder) if f.endswith(".json")
+    )
+
+    if len(frame_files) < 2:
+        raise ValueError("Not enough frames to compute DIFEM features")
+
+    frames = np.array([
+        load_keypoints(os.path.join(json_folder, f))
+        for f in frame_files
+    ])
 
     velocities = calculate_velocity(frames, JOINT_INDICES, JOINT_WEIGHT_LIST)
     accelerations = calculate_acceleration(velocities)

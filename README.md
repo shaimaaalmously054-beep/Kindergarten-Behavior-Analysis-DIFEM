@@ -31,22 +31,24 @@ representation suitable for classical machine learning models.
 
 ---
 
-## ⚙️ Processing Pipeline
+⚙️ Processing Pipeline
+Frame Extraction
+Extract frames from the video at a specified interval (e.g., every 1 second).
 
-1. **Skeleton Extraction**  
-   OpenPose is used to extract 2D skeleton keypoints for each video frame.
+Skeleton Extraction
+Use OpenPose to extract 2D skeleton keypoints for each extracted video frame.
 
-2. **Preprocessing**
-   - Selection of the two most relevant interacting persons per frame
-   - Temporal normalization of skeleton sequences to a fixed length (default: 10 frames)
+Preprocessing
 
-3. **Feature Extraction (DIFEM)**
-   - Motion-based features (velocity, acceleration)
-   - Geometry-based features (joint angles, overlap)
+Selection of the two most relevant interacting persons per frame.
+Temporal normalization of skeleton sequences to a fixed length (default: 10 frames).
+Feature Extraction (DIFEM)
 
-4. **Behavior Classification**
-   - Random Forest classifier
+Motion-based features (velocity, acceleration).
+Geometry-based features (joint angles, overlap).
+Behavior Classification
 
+Random Forest classifier.
 ---
 
 ## 📂 Project Structure

@@ -28,14 +28,14 @@ The method uses **12 selected skeletal joints** and produces a compact numerical
 
 > ⚠️ **Note:** Frame extraction and OpenPose execution are assumed as pre-processing.
 
-1. **Frame Extraction **  
+1. **Frame Extraction**  
    Video frames should be extracted at a fixed interval (e.g., 1 frame per second).
 
 2. **Skeleton Extraction**  
    OpenPose is used to extract 2D skeleton keypoints for each frame.  
    The output should be a sequence of OpenPose JSON files.
 
-3. **Preprocessing **  
+3. **Preprocessing**  
    - Selection of the two most relevant interacting persons per frame  
    - Temporal normalization of skeleton sequences to a fixed length (default: 10 frames)
 

@@ -17,8 +17,24 @@ import joblib
 import cv2
 import matplotlib.pyplot as plt
 import warnings
+from difem.feature_extraction import extract_difem_features  # ✅ إضافة استخراج الميزات
 
 warnings.filterwarnings("ignore", category=UserWarning)
+
+
+# --------------------------------------------------
+# Step 0: Extract DIFEM features from video JSON
+# --------------------------------------------------
+
+FEATURE_JSON_PATH = "data/sample_video_json"
+FEATURE_OUTPUT_PATH = "data/features/video_features.npy"
+
+features = extract_difem_features(FEATURE_JSON_PATH)
+print("DIFEM feature vector:", features)
+print("Feature dimension:", features.shape)
+
+# حفظ الميزات لاستخدامها لاحقًا في التصنيف
+np.save(FEATURE_OUTPUT_PATH, features)
 
 
 # --------------------------------------------------
@@ -65,22 +81,6 @@ def classify_video(
 ):
     """
     Classifies a video based on DIFEM features.
-
-    Parameters
-    ----------
-    feature_path : str
-        Path to extracted DIFEM feature file (.npy)
-    model_path : str
-        Path to trained Random Forest model (.pkl)
-    mean_nonviolence_path : str
-        Path to feature means for non-violent class (.npy)
-    frames_dir : str, optional
-        Directory containing extracted video frames (for visualization)
-
-    Returns
-    -------
-    int
-        Prediction label (0 = Non-Violence, 1 = Violence)
     """
 
     # Load DIFEM features
@@ -117,13 +117,12 @@ def classify_video(
 
 if __name__ == "__main__":
 
-    FEATURE_FILE = "data/features/video_features.npy"
     MODEL_FILE = "models/random_forest_difem.pkl"
     MEAN_NONVIOLENCE = "models/feature_means_nonviolence.npy"
     FRAMES_DIR = "data/frames/video_01"
 
     classify_video(
-        feature_path=FEATURE_FILE,
+        feature_path=FEATURE_OUTPUT_PATH,
         model_path=MODEL_FILE,
         mean_nonviolence_path=MEAN_NONVIOLENCE,
         frames_dir=FRAMES_DIR

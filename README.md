@@ -75,4 +75,5 @@ Kindergarten-Behavior-Analysis-DIFEM/
 ├── example_usage.py            # End-to-end DIFEM usage example
 ├── requirements.txt
 ├── README.md
+├── DEMO.mp4
 └── LICENSE

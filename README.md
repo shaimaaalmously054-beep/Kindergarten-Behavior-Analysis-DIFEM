@@ -2,7 +2,7 @@
 
 An intelligent system for analyzing children’s behavior in kindergarten using computer vision and machine learning.  
 The project implements the **Dynamic Image Feature Extraction Method (DIFEM)** to extract motion and geometry features from skeletal data, and validates the extracted features using a Random Forest classifier achieving **up to 93.6% accuracy**.
-
+Demo: https://drive.google.com/file/d/19Ha5rsGH2bDIoPS9rXybBmQowvGqR73S/view?usp=sharing
 ---
 
 ## 📌 Overview
